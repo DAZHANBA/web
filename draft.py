@@ -12,7 +12,7 @@ import urllib
 
 url_ip = "https://ip.cn"
 
-chrome_driver_path = r'C:\Users\1022532\Documents\python_project\chrome driver\chromedriver.exe'
+chrome_driver_path = r''
 d = wb.Chrome(chrome_driver_path)
 d.get(url_ip)
 tmp = d.page_source
@@ -27,7 +27,7 @@ import urllib
 
 url_ip = "https://ip.cn"
 
-chrome_driver_path = r'C:\Users\1022532\Documents\python_project\chrome driver\chromedriver.exe'
+chrome_driver_path = r''
 d=wb.Chrome(chrome_driver_path)
 d.get(url_ip)
 with open("page_source.html","w") as f:
