@@ -9,6 +9,7 @@ sys.setdefaultencoding('utf8')
 import re
 from selenium import webdriver as wb
 import urllib2
+import cookielib
 import StringIO
 import gzip
 
@@ -22,11 +23,17 @@ header = {'User-Agent': r'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:36.0) 
 headers = ("User-Agent",
            "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.122 Safari/537.36 SE 2.X MetaSr 1.0")
 """
-opener = urllib2.build_opener() # urllib.request.build_opener()
+# opener = urllib.request.build_opener(proxy, urllib.request.HTTPHandler,urllib.request.HTTPCookieProcessor(cjar))
+# proxy= urllib.request.ProxyHandler({'http':"127.0.0.1:8888"}) python3
+# proxy = urllib2.ProxyHandler() # python2
+
+# cjar=http.cookiejar.CookieJar() # python3
+cjar = cookielib.CookieJar()
+
+opener = urllib2.build_opener(urllib2.HTTPHandler,urllib2.HTTPCookieProcessor(cjar)) # urllib.request.build_opener()
 opener.addheaders = header.items() # opener.addheaders(list)
 
 urllib2.install_opener(opener) # urllib.request.install_opener(opener)
-
 
 url_ip = "https://ip.cn"
 
